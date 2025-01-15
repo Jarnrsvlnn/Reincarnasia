@@ -23,12 +23,15 @@ public class GamePanel extends JPanel implements  Runnable{
     }
 
     public void startGameThread(){
-        gameThread = new Thread();
+        gameThread = new Thread(this);
+        gameThread.start();
     }
 
     @Override
     public void run() {
-
+        while(gameThread != null){
+            System.out.println("Game is running!");
+        }
     }
 }
 
