@@ -4,17 +4,19 @@ import javax.swing.JFrame;
 
 public class main {
     public static void main(String[] args){
-        JFrame window = new JFrame();
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setResizable(false);
-        window.setTitle("Reincarnasia");
 
-        GamePanel gamePanel = new GamePanel();
-        window.add(gamePanel);
+        //setting up the window
+        JFrame window = new JFrame();//instantiate the JFrame object
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//a function of JFrame which closes the window if x is selected
+        window.setResizable(false);//sets the window size to fixed
+        window.setTitle("Reincarnasia");//sets title
+
+        GamePanel gamePanel = new GamePanel();//instantiation of GamePanel object
+        window.add(gamePanel);//adds the GamePanel object into the window/JFrame
         window.pack();
 
-        window.setLocationRelativeTo(null);
-        window.setVisible(true);
+        window.setLocationRelativeTo(null);//sets the location to null so that the program can be at any position
+        window.setVisible(true);//sets the window to be visible
 
         gamePanel.startGameThread();
     }

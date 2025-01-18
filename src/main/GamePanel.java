@@ -11,22 +11,23 @@ import java.awt.Graphics2D;
 
 public class GamePanel extends JPanel implements  Runnable{
     // SCREEN SETTINGS
-    final int originalTileSize = 16;//16x16 pixels
+    final int originalTileSize = 16;//sets the pixels into 16x16, final means it cant be changed
     final int scale = 3;
-    public int tileSize = originalTileSize * scale;
+    public int tileSize = originalTileSize * scale;//16x3 = 48 tiles per item or character from the game
+    final int maxScreenHorizonal = 20; //sets the max horizontal view from the window
+    final int maxScreenVertical = 16; //sets the max vertical view from the window
+    final int screenWidth = tileSize * maxScreenHorizonal;//sets the screen width to 960 in tiles
+    final int screenHeight = tileSize * maxScreenVertical;//sets the screen height to 768 in tiles
 
-    final int maxScreenHorizonal = 20;
-    final int maxScreenVertical = 16;
-    final int screenWidth = tileSize * maxScreenHorizonal;
-    final int screenHeight = tileSize * maxScreenVertical;
     //FPS
-    int FPS = 60;
+    int FPS = 60;//sets the frames per second to 60
 
-    Thread gameThread;
-    KeyHandler keyH = new KeyHandler();
-    Player player = new Player(this,keyH);
+    Thread gameThread;//thread is a method that allows to us compute/control time needed for FPS
+    KeyHandler keyH = new KeyHandler();//keyhandler is a function that enables the user to control the character based on the keys
+    Player player = new Player(this,keyH);//instantiate the player object with "this" (this class), and keyH.
+                                              //control the player using keyH
 
-    //player's default position
+    //player's default position on the window
     int playerX = 100;
     int playerY = 100;
     int playerSpeed = 4;
